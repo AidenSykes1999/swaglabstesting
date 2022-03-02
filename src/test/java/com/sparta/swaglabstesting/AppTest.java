@@ -22,10 +22,5 @@ public class AppTest
         loginPage = new LoginPage(webDriver);
     }
 
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        System.out.println(loginPage.getCurrentUrl());
-        assertTrue( true );
-    }
+
 }
