@@ -4,7 +4,10 @@ import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -31,4 +34,35 @@ public class NavbarTests {
         webDriver = new ChromeDriver();
     }
 
+    @Given("I have logged into swaglabs")
+    public void iHaveLoggedIntoSwaglabs() {
+    }
+
+    @When("I go to the inventory page")
+    public void iGoToTheInventoryPage() {
+    }
+
+    @And("I click on the navbar icon")
+    public void iClickOnTheNavbarIcon() {
+    }
+
+    @Then("The navigation sidebar should exist")
+    public void theNavigationSidebarShouldExist() {
+    }
+
+    @And("The navigation sidebar should open")
+    public void theNavigationSidebarShouldOpen() {
+    }
+
+    @And("I enter the <username>")
+    public void iEnterTheUsername() {
+    }
+
+    @And("I click on <option>")
+    public void iClickOnOption() {
+    }
+
+    @Then("I should be taken to <result>")
+    public void iShouldBeTakenToResult() {
+    }
 }
