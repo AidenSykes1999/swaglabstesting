@@ -2,6 +2,7 @@ package com.sparta.swaglabstesting;
 
 import static org.junit.Assert.assertTrue;
 
+
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
@@ -22,5 +23,11 @@ public class AppTest
         loginPage = new LoginPage(webDriver);
     }
 
+    @Test
+    public void shouldAnswerWithTrue()
+    {
+        System.out.println(loginPage.getCurrentUrl());
+        assertTrue( true );
+    }
 
 }

@@ -5,11 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-    public WebDriver webDriver;
-
-    public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
     //locator for username
     By username = By.id("user-name");
     //locator for password
@@ -47,12 +42,18 @@ public class LoginPage {
             e.printStackTrace();
         }
     }
+  
     //method to see if login page is opened
     public boolean isLoginPageOpen(){
         return webDriver.getCurrentUrl().contains("https://www.saucedemo.com/");
     }
-    //method to get the current URL
-    public String getURL(){
+    
+    public InventoryPage goToInventoryPage() {
+
+        return new InventoryPage(webDriver);
+    }
+
+    public String getCurrentUrl() {
         return webDriver.getCurrentUrl();
     }
 }
