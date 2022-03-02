@@ -4,7 +4,6 @@ package com.sparta.swaglabstesting.webdrivers;
 public enum WebDriverType {
     CHROME,
     FIREFOX,
-    IE,
     OPERA,
     EDGE;
 }

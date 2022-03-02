@@ -10,10 +10,6 @@ public class WebDriverManagerFactory {
                 webDriverManager = new FirefoxDriverManager();
                 break;
             }
-            case IE -> {
-                webDriverManager = new IEDriverManager();
-                break;
-            }
             case OPERA -> {
                 webDriverManager = new OperaDriverManager();
                 break;
