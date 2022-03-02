@@ -35,9 +35,9 @@ public class CheckoutStepOnePage {
         return new Cart(webDriver);
     }
 
-    public CheckoutStepTwo continueToCheckoutStepTwo(){
+    public CheckoutStepTwoPage continueToCheckoutStepTwo(){
         webDriver.findElement(By.id("continue")).click();
-        return new CheckoutStepTwo(webDriver);
+        return new CheckoutStepTwoPage(webDriver);
 
     }
 
