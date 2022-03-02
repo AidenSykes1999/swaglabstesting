@@ -18,22 +18,23 @@ public class AppTest
 
     @BeforeAll
     public static void setUpAll() {
-        POMUtils.setDriverLocation();
+        POMUtils.setDriverLocation("src/test/resources/drivers/chromedriver.exe");
         webDriver = POMUtils.setUpWebDriver();
         loginPage = new LoginPage(webDriver);
     }
 
     @BeforeEach
     public void setUp() {
+
     }
 
-    /**
-     * Rigorous Test :-)
-     */
     @Test
     public void shouldAnswerWithTrue()
     {
-        System.out.println(loginPage.getCurrentUrl());
+        POMUtils.setDriverLocation("src/test/resources/drivers/chromedriver.exe");
+        WebDriver driver = POMUtils.setUpWebDriver();
+        LoginPage loginTest = new LoginPage(driver);
+        System.out.println(loginTest.getCurrentUrl());
         assertTrue( true );
     }
 }
