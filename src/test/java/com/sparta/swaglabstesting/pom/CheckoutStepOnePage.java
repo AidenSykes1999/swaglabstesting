@@ -1,12 +1,13 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CheckoutStepOnePage {
+public class CheckoutStepOnePage extends Page {
 
     public static void main(String[] args) {
+
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.saucedemo.com");
@@ -20,37 +21,36 @@ public class CheckoutStepOnePage {
         checkoutPageOne.goToCart();
 
     }
-    WebDriver webDriver;
+
     public CheckoutStepOnePage(WebDriver webDriver){
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
-    public Cart goToCart(){
-        webDriver.findElement(By.className("shopping_cart_link")).click();
-        return new Cart(webDriver);
+    public CartPage goToCart(){
+        getWebDriver().findElement(By.className("shopping_cart_link")).click();
+        return new CartPage(getWebDriver());
     }
 
-    public Cart cancelBackToCart(){
-        webDriver.findElement(By.id("cancel")).click();
-        return new Cart(webDriver);
+    public CartPage cancelBackToCart(){
+        getWebDriver().findElement(By.id("cancel")).click();
+        return new CartPage(getWebDriver());
     }
 
     public CheckoutStepTwoPage continueToCheckoutStepTwo(){
-        webDriver.findElement(By.id("continue")).click();
-        return new CheckoutStepTwoPage(webDriver);
+        getWebDriver().findElement(By.id("continue")).click();
+        return new CheckoutStepTwoPage(getWebDriver());
 
     }
 
     public void enterFirstName(String firstName){
-        webDriver.findElement(By.id("first-name")).sendKeys(firstName);
+        getWebDriver().findElement(By.id("first-name")).sendKeys(firstName);
     }
 
     public void enterLastName(String lastName){
-        webDriver.findElement(By.id("last-name")).sendKeys(lastName);
-
+        getWebDriver().findElement(By.id("last-name")).sendKeys(lastName);
     }
 
     public void enterZipCode(String zipCode){
-        webDriver.findElement(By.id("postal-code")).sendKeys(zipCode);
+        getWebDriver().findElement(By.id("postal-code")).sendKeys(zipCode);
     }
 }
