@@ -2,14 +2,11 @@ package com.sparta.swaglabstesting;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest 
 {
 
@@ -20,21 +17,17 @@ public class AppTest
     public static void setUpAll() {
         POMUtils.setDriverLocation("src/test/resources/drivers/chromedriver.exe");
         webDriver = POMUtils.setUpWebDriver();
-        loginPage = new LoginPage(webDriver);
     }
 
     @BeforeEach
     public void setUp() {
-
+        loginPage = new LoginPage(webDriver);
     }
 
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        POMUtils.setDriverLocation("src/test/resources/drivers/chromedriver.exe");
-        WebDriver driver = POMUtils.setUpWebDriver();
-        LoginPage loginTest = new LoginPage(driver);
-        System.out.println(loginTest.getCurrentUrl());
+    public void shouldAnswerWithTrue() {
+        System.out.println(loginPage.getCurrentUrl());
         assertTrue( true );
     }
+
 }
