@@ -2,9 +2,8 @@ package com.sparta.swaglabstesting;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 public class AppTest 
@@ -25,7 +24,8 @@ public class AppTest
     }
 
     @Test
-    public void shouldAnswerWithTrue() {
+    public void shouldAnswerWithTrue()
+    {
         System.out.println(loginPage.getCurrentUrl());
         assertTrue( true );
     }

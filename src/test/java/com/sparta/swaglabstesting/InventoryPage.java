@@ -81,20 +81,20 @@ public class InventoryPage {
         return product;
     }
 
-    public CartPage openCart() {
-        webDriver.findElement(shoppingCart).click();
-        return new CartPage(webDriver);
-    }
-
-    public Navbar openNavbar() {
-        webDriver.findElement(navbarButton).click();
-        return new Navbar(webDriver);
-    }
-
-    public InventoryProductPage goToProductPage(int index) {
-        getProduct(index).click();
-        return new InventoryProductPage(webDriver);
-    }
+    // public CartPage openCart() {
+    //     webDriver.findElement(shoppingCart).click();
+    //     return new CartPage(webDriver);
+    // }
+    //
+    // public Navbar openNavbar() {
+    //     webDriver.findElement(navbarButton).click();
+    //     return new Navbar(webDriver);
+    // }
+    //
+    // public InventoryProductPage goToProductPage(int index) {
+    //     getProduct(index).click();
+    //     return new InventoryProductPage(webDriver);
+    // }
 
     public String goToTwitter() {
         webDriver.findElement(socialMedia).findElement(By.linkText("Twitter")).click();
