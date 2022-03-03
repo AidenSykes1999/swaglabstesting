@@ -1,20 +1,20 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.CheckoutStepOnePage;
 import com.sparta.swaglabstesting.pom.CheckoutStepTwoPage;
 import com.sparta.swaglabstesting.pom.LoginPage;
-import com.sparta.swaglabstesting.pom.POMUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CheckoutStepOneTests {
+public class CheckoutStepOneStepDefs {
+
     private WebDriver webDriver;
     private CheckoutStepOnePage checkoutStepOnePage;
     private CheckoutStepTwoPage checkoutStepTwoPage;
+
     @Given("I have Access to Checkout Step One Page")
 
     public void iHaveAccessToCheckoutStepOnePage() {
@@ -25,8 +25,6 @@ public class CheckoutStepOneTests {
                 .goToCart()
                 .goToCheckout();
     }
-
-
 
     @Given("I Enter a valid first name")
     public void iEnterAValidFirstName() {
@@ -56,8 +54,6 @@ public class CheckoutStepOneTests {
     @Given("I enter a <first name>")
     public void iEnterAFirstName() {
     }
-
-   
 
     @And("I click continue expecting failure")
     public void iClickContinueExpectingFailure() {

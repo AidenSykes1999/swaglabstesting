@@ -17,8 +17,6 @@ public class CheckoutStepOnePage extends Page {
         getWebDriver().findElement(By.id("react-burger-menu-btn")).click();
     }
 
-
-
     public CartPage goToCart(){
         getWebDriver().findElement(By.className("shopping_cart_link")).click();
         return new CartPage(getWebDriver());

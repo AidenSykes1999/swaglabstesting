@@ -10,7 +10,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginTests {
+public class LoginStepDefs {
 
     private WebDriver webDriver;
     private LoginPage login;
