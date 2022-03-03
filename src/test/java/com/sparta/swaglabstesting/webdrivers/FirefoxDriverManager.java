@@ -18,7 +18,7 @@ public class FirefoxDriverManager extends WebDriverManager{
             if(System.getProperty("os.name").toLowerCase().contains("win")) {
                 firefoxPath += ".exe";
             }
-            System.setProperty("webdriver.gecko.driver", prop.getProperty(firefoxPath));
+            System.setProperty("webdriver.gecko.driver", firefoxPath);
         } catch (IOException e) {
             e.printStackTrace();
         }

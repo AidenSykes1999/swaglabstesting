@@ -40,8 +40,9 @@ public class CartPage extends Page {
         super(webDriver);
     }
 
-    public void goToCheckout(){
+    public CheckoutStepOnePage goToCheckout(){
         getWebDriver().findElement(By.linkText("CHECKOUT")).click();
+        return new CheckoutStepOnePage(getWebDriver());
     }
 
     public void continueShopping(){
