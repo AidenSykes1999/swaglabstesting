@@ -39,8 +39,9 @@ public class CheckoutStepTwoPage extends Page {
         return Integer.parseInt(totalText.replace(this.numberRegex, ""));
     }
 
-    public void finishToCheckoutComplete(){
+    public CheckoutComplete finishToCheckoutComplete(){
         getWebDriver().findElement(By.id("finish")).click();
+        return new CheckoutComplete(getWebDriver());
     }
 
     public List<Integer> getInventoryItemPrices(){
@@ -48,6 +49,5 @@ public class CheckoutStepTwoPage extends Page {
             .stream()
             .map(we-> Integer.parseInt(we.getText().replace(this.numberRegex,"")))
             .toList();
-
     }
 }
