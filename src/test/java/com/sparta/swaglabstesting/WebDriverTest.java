@@ -5,7 +5,6 @@ import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
 import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
