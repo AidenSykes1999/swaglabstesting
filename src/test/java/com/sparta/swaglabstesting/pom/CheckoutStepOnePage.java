@@ -62,11 +62,13 @@ public class CheckoutStepOnePage extends Page {
         return getWebDriver().findElement(By.className("error-message-container")).getText();
     }
 
-    public void clickErrorButton(){
+    public CheckoutStepOnePage clickErrorButton(){
         getWebDriver().findElement(By.className("error-button")).click();
+        return this;
     }
 
-    public void enterZipCode(String zipCode){
+    public CheckoutStepOnePage enterZipCode(String zipCode){
         getWebDriver().findElement(By.id("postal-code")).sendKeys(zipCode);
+        return this;
     }
 }
