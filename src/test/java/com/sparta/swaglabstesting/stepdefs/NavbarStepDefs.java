@@ -12,10 +12,10 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class NavbarTests {
+public class NavbarStepDefs {
 
     private WebDriver webDriver;
-    //private LoginPage login;
+    private LoginPage login;
     private NavbarPage navbar;
 
     // Begin Selenium
@@ -23,7 +23,7 @@ public class NavbarTests {
     public void setup(){
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
-        //login = new LoginPage(webDriver);
+        login = new LoginPage(webDriver);
         navbar = new NavbarPage(webDriver);
     }
 
@@ -38,12 +38,19 @@ public class NavbarTests {
         webDriver = new ChromeDriver();
     }
 
+
+    @Given("I have logged into swaglabs")
+    public void iHaveLoggedIntoSwaglabs() {
+        webDriver.navigate().to("https://www.saucedemo.com/");
+        login.enterUsername("standard_user");
+        login.enterPassword("secret_sauce");
+
+    }
+
     @When("I go to the inventory page")
     public void iGoToTheInventoryPage() {
 
-        // TODO
-        // Requires login to work correctly
-
+        login.clickLoginButton();
 
     }
 

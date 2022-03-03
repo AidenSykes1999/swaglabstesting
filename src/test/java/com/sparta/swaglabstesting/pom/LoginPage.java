@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends Page {
-
     //locator for username
     private By username = new By.ById("user-name");
     //locator for password
@@ -13,12 +12,10 @@ public class LoginPage extends Page {
     private By loginButton = new By.ById("login-button");
     //locator for error message
     private By errorMessage = new By.ByClassName("error");
-
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
         getWebDriver().get("https://www.saucedemo.com/");
     }
-
     //method to enter username
     public LoginPage enterUsername(String userName){
 
@@ -55,7 +52,8 @@ public class LoginPage extends Page {
         return getWebDriver().getCurrentUrl().contains("https://www.saucedemo.com/");
     }
 
-    public String getUserName() {
+    public String getUserName()
+    {
         return username.toString();
     }
 
@@ -65,5 +63,9 @@ public class LoginPage extends Page {
 
     public By getLoginButton() {
         return loginButton;
+    }
+    //method to return the error message
+    public String getErrorMessage(){
+        return getWebDriver().findElement(By.className("error")).getText();
     }
 }
