@@ -13,7 +13,11 @@ public class ChromeDriverManager extends WebDriverManager{
             Properties prop = new Properties();
             FileInputStream input = new FileInputStream("src/test/resources/WebDriver.properties");
             prop.load(input);
-            System.setProperty("webdriver.chrome.driver", prop.getProperty("ChromeDriverPath"));
+            String chromePath = prop.getProperty("ChromeDriverPath");
+            if(System.getProperty("os.name").toLowerCase().contains("win")) {
+                chromePath += ".exe";
+            }
+            System.setProperty("webdriver.chrome.driver", chromePath);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -14,7 +14,11 @@ public class OperaDriverManager extends WebDriverManager{
             Properties prop = new Properties();
             FileInputStream input = new FileInputStream("src/test/resources/WebDriver.properties");
             prop.load(input);
-            System.setProperty("webdriver.opera.driver", prop.getProperty("OperaDriverPath"));
+            String operaPath = prop.getProperty("OperaDriverPath");
+            if(System.getProperty("os.name").toLowerCase().contains("win")) {
+                operaPath += ".exe";
+            }
+            System.setProperty("webdriver.opera.driver", prop.getProperty(operaPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
