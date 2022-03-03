@@ -14,7 +14,7 @@ public class EdgeDriverManager extends WebDriverManager{
             Properties prop = new Properties();
             FileInputStream input = new FileInputStream("src/test/resources/WebDriver.properties");
             prop.load(input);
-            System.setProperty("webdriver.edge.driver", prop.getProperty("webDriverPath"));
+            System.setProperty("webdriver.edge.driver", prop.getProperty("EdgeDriverPath"));
         } catch (IOException e) {
             e.printStackTrace();
         }
