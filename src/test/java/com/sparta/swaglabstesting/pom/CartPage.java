@@ -2,9 +2,40 @@ package com.sparta.swaglabstesting.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
 
 public class CartPage extends Page {
 
+    private By cartList = new By.ByClassName("cart_list");
+
+
+
+    /*
+        stuff that might be useful with your method (but unlikely)
+    public void getItemIndex(){
+
+    }
+
+    public String getProductName(int index){
+        return null;
+    }
+
+    public WebElement getCartList(){
+        return getWebDriver().findElement(cartList);
+    }
+
+
+    public void clickProductName(){
+//        getWebDriver().findElement(cartList).findElement()
+    }
+
+*/
+
+
+    // what I had originally
     public CartPage(WebDriver webDriver){
         super(webDriver);
     }
@@ -78,15 +109,4 @@ public class CartPage extends Page {
     public void checkCartDescriptionLabelAppears(){
         getWebDriver().findElement(By.className("cart_desc_label")).getText();
     }
-
-
-
-
-/*
-    elements:
-    item name
-    item price value
-    item price currency
-     */
-
 }
