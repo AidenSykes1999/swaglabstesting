@@ -10,7 +10,7 @@ Feature: Login features
   Scenario Outline: Login works for <username> with correct credentials
     Given I have opened the browser
     When I open Swaglabs website
-    And I enter the <username>
+    And I enter the username <username>
     And I enter the password <password>
     And I click login button
     Then the inventory page should be displayed
@@ -23,8 +23,8 @@ Feature: Login features
   Scenario Outline: Login doesn't work for <username> with incorrect <password>
     Given I have opened the browser
     When I open Swaglabs website
-    And I enter the <username>
-    And I enter the <password>
+    And I enter the username <username>
+    And I enter the password <password>
     And I click login button
     Then the error <message> is displayed
     Examples:
