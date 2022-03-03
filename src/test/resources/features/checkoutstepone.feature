@@ -1,6 +1,5 @@
 Feature: Checkout Step One
 
-
   Scenario: Valid Name and Post code input
     Given I have Access to Checkout Step One Page
     And I Enter a valid first name

@@ -1,14 +1,12 @@
 package com.sparta.swaglabstesting;
 
-import io.cucumber.java.sl.In;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.List;
-
 public class CheckoutStepTwoPage {
+
     private WebDriver webDriver;
     private String numberRegex;
+
     public CheckoutStepTwoPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         this.numberRegex = "[^0-9]";

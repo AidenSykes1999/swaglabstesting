@@ -1,4 +1,4 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.NavbarPage;
@@ -19,9 +19,7 @@ public class NavbarStepDefs {
     private NavbarPage navbar;
 
     // Begin Selenium
-
-
-    @Before
+    @Before("@navbar")
     public void setup(){
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
@@ -29,15 +27,12 @@ public class NavbarStepDefs {
         navbar = new NavbarPage(webDriver);
     }
 
-    @After
+    @After("@navbar")
     public void tearDown() {
         webDriver.quit();
     }
 
-
     // Begin BDD
-
-
     @Given("I have opened the web browser")
     public void openBrowser(){
         webDriver = new ChromeDriver();
