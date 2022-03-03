@@ -14,7 +14,11 @@ public class EdgeDriverManager extends WebDriverManager{
             Properties prop = new Properties();
             FileInputStream input = new FileInputStream("src/test/resources/WebDriver.properties");
             prop.load(input);
-            System.setProperty("webdriver.edge.driver", prop.getProperty("EdgeDriverPath"));
+            String edgePath = prop.getProperty("EdgeDriverPath");
+            if(System.getProperty("os.name").toLowerCase().contains("win")) {
+                edgePath += ".exe";
+            }
+            System.setProperty("webdriver.edge.driver", prop.getProperty(edgePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
