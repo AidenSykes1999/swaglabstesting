@@ -80,5 +80,7 @@ public class NavbarPage extends Page {
         return this;
     }
 
-
+    public By getNavIcon() {
+        return navIcon;
+    }
 }
