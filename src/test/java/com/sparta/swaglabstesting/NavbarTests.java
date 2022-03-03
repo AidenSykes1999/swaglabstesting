@@ -1,6 +1,7 @@
 package com.sparta.swaglabstesting;
 
 import com.sparta.swaglabstesting.pom.LoginPage;
+import com.sparta.swaglabstesting.pom.NavbarPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,55 +15,70 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class NavbarTests {
 
     private WebDriver webDriver;
-    private LoginPage login;
+    //private LoginPage login;
+    private NavbarPage navbar;
+
+    // Begin Selenium
+
 
     @Before
     public void setup(){
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
-        login = new LoginPage(webDriver);
+        //login = new LoginPage(webDriver);
+        navbar = new NavbarPage(webDriver);
     }
-
 
     @After
     public void tearDown() {
         webDriver.quit();
     }
 
+
+    // Begin BDD
+
+
     @Given("I have opened the web browser")
     public void openBrowser(){
         webDriver = new ChromeDriver();
     }
 
-    @Given("I have logged into swaglabs")
-    public void iHaveLoggedIntoSwaglabs() {
-    }
-
     @When("I go to the inventory page")
     public void iGoToTheInventoryPage() {
+
+        // TODO
+        // Requires login to work correctly
+
+
     }
 
-    @And("I click on the navbar icon")
+    @And("The navigation sidebar should exist")
+    public boolean theNavigationSidebarShouldExist() {
+        if (navbar.getNavIcon() != null ) {
+            return true;
+        } else return false;
+
+    }
+
+    @Then("I click on the navbar icon")
     public void iClickOnTheNavbarIcon() {
+        navbar.navOpen();
     }
 
-    @Then("The navigation sidebar should exist")
-    public void theNavigationSidebarShouldExist() {
+    @And("I click on {string}")
+    public void iClickOn(String option) {
+        switch (option) {
+            case "All Items": navbar.inventoryOption();
+            case "About": navbar.aboutOption();
+            case "Logout": navbar.logoutOption();
+            case "Reset App State": navbar.resetOption();
+        }
     }
 
-    @And("The navigation sidebar should open")
-    public void theNavigationSidebarShouldOpen() {
+    @Then("I should be taken to {string}")
+    public String iShouldBeTakenTo(String result) {
+        return navbar.getCurrentUrl();
     }
 
-    @And("I enter the <username>")
-    public void iEnterTheUsername() {
-    }
 
-    @And("I click on <option>")
-    public void iClickOnOption() {
-    }
-
-    @Then("I should be taken to <result>")
-    public void iShouldBeTakenToResult() {
-    }
 }
