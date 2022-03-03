@@ -23,7 +23,7 @@ public class CheckoutStepOneStepDefs {
         checkoutStepOnePage = new LoginPage(webDriver)
                 .loginGoToInventoryPage("standard_user", "secret_sauce")
                 .goToCart()
-                .goToCheckout();
+                .goToCheckoutStepOne();
     }
 
     @Given("I Enter a valid first name")

@@ -36,6 +36,7 @@ public class InventoryPage extends Page {
                 .getText();
     }
 
+
     public String getProductDescription(int index) {
         return getProduct(index)
                 .findElement(By.className("inventory_item_desc"))
@@ -50,6 +51,8 @@ public class InventoryPage extends Page {
 
         double price = Double.parseDouble(priceString);
 
+        System.out.println(price);
+
         return price;
     }
 
@@ -58,20 +61,20 @@ public class InventoryPage extends Page {
         return this;
     }
 
-    public Boolean isProductInCart(int index) {
-
-        String status = getProduct(index).findElement(By.className("btn_btn_inventory")).getText();
-
-        if (status.equals("Remove")) {
-            return true;
-        }
-        else if (status.equals("Add to cart")) {
-            return false;
-        }
-
-        return null;
-
-    }
+    // public Boolean isProductInCart(int index) {
+    //
+    //     String status = getProduct(index).findElement(By.className("btn_btn_inventory")).getText();
+    //
+    //     if (status.equals("Remove")) {
+    //         return true;
+    //     }
+    //     else if (status.equals("Add to cart")) {
+    //         return false;
+    //     }
+    //
+    //     return null;
+    //
+    // }
 
     public WebElement getProduct(int index) {
         WebElement product = getWebDriver().findElement(inventoryList)
@@ -81,11 +84,102 @@ public class InventoryPage extends Page {
         return product;
     }
 
+    public int getProductIndexFromName(String name) {
+
+        for (int i = 0; i < getProductCount(); i++) {
+            if (getProductName(i).equals(name)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public int getProductCount() {
         List<WebElement> products = getWebDriver().findElement(inventoryList)
                 .findElements(By.className("inventory_item"));
 
         return products.size();
+    }
+
+    public boolean isProductsSortedLowestToHighest() {
+
+        boolean ordered = true;
+
+        double previous = 0;
+
+        for (int i = 0; i < getProductCount() ; i++) {
+
+            double price = getProductPrice(i);
+
+            if (price < previous) {
+                ordered = false;
+            }
+
+            previous = price;
+        }
+
+        return ordered;
+    }
+
+    public boolean isProductsSortedHighestToLowest() {
+
+        boolean ordered = true;
+
+        double previous = getProductPrice(0);
+
+        for (int i = 0; i < getProductCount() ; i++) {
+
+            double price = getProductPrice(i);
+
+            if (!(price <= previous)) {
+                ordered = false;
+            }
+
+            previous = price;
+        }
+
+        return ordered;
+    }
+
+    public boolean isProductsSortedAlphabetically() {
+
+        boolean ordered = true;
+
+        String previous = "";
+
+        for (int i = 0; i < getProductCount() ; i++) {
+
+            String name = getProductName(i);
+
+            if (name.compareTo(previous) < 0) {
+                ordered = false;
+            }
+
+            previous = name;
+        }
+
+        return ordered;
+    }
+
+    public boolean isProductsSortedReverseAlphabetically() {
+
+        boolean ordered = true;
+
+        String previous = getProductName(0);
+
+        for (int i = 0; i < getProductCount(); i++) {
+
+            String name = getProductName(i);
+
+            if ((name.compareTo(previous) > 0)) {
+                ordered = false;
+            }
+
+            previous = name;
+        }
+
+        return ordered;
     }
 
     public CartPage goToCart() {

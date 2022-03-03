@@ -18,14 +18,14 @@ public class InventorySortingStepDefs {
     private LoginPage login;
     private InventoryPage inventoryPage;
 
-    @Before("@inventory")
+    @Before("@inventory-sorting")
     public void beforeScenario() {
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
         login = new LoginPage(webDriver);
     }
 
-    @After("@inventory")
+    @After("@inventory-sorting")
     public void afterScenario() {
         webDriver.quit();
     }
@@ -35,7 +35,7 @@ public class InventorySortingStepDefs {
         inventoryPage = login.loginGoToInventoryPage("standard_user", "secret_sauce");
     }
 
-    @Given("If I change the products to be sorted from {string}")
+    @Given("I change the products to be sorted from {string}")
     public void iChangeTheProductsToBeSortedFrom(String option) {
         String choice = switch (option) {
             case "a to z" -> "az";
@@ -51,47 +51,21 @@ public class InventorySortingStepDefs {
 
     @Then("I should see the products sorted lowest to highest price")
     public void theProductsShouldBeSortedLowestToHighestPrice() {
-
-        int productNumber = inventoryPage.getProductCount();
-        boolean ordered = true;
-
-        double previous = 0;
-
-        for (int i = 0; i < productNumber ; i++) {
-
-            double price = inventoryPage.getProductPrice(i);
-
-            if (price < previous) {
-                ordered = false;
-            }
-
-            previous = price;
-        }
-
-        Assertions.assertTrue(ordered);
-
+        Assertions.assertTrue(inventoryPage.isProductsSortedLowestToHighest());
     }
 
     @Then("I should see the products sorted highest to lowest price")
     public void iShouldSeeTheProductsSortedHighestToLowestPrice() {
+        Assertions.assertTrue(inventoryPage.isProductsSortedHighestToLowest());
+    }
 
-        int productNumber = inventoryPage.getProductCount();
-        boolean ordered = true;
+    @Then("I should see the products sorted alphabetically")
+    public void iShouldSeeTheProductsSortedAlphabetically() {
+        Assertions.assertTrue(inventoryPage.isProductsSortedAlphabetically());
+    }
 
-        double previous = inventoryPage.getProductPrice(0);
-
-        for (int i = 0; i < productNumber ; i++) {
-
-            double price = inventoryPage.getProductPrice(i);
-
-            if (previous >= price) {
-                ordered = false;
-            }
-
-            previous = price;
-        }
-
-        Assertions.assertTrue(ordered);
-
+    @Then("I should see the products sorted reverse alphabetically")
+    public void iShouldSeeTheProductsSortedReverseAlphabetically() {
+        Assertions.assertTrue(inventoryPage.isProductsSortedReverseAlphabetically());
     }
 }
