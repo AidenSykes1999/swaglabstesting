@@ -1,5 +1,6 @@
 Feature: Login features
 
+  @login
   Scenario: Login functionality exists
     Given I have opened the browser
     When I open Swaglabs website
@@ -7,6 +8,7 @@ Feature: Login features
     And password box should exist
     And login button should exist
 
+  @login
   Scenario Outline: Login works for <username> with correct credentials
     Given I have opened the browser
     When I open Swaglabs website
@@ -20,6 +22,7 @@ Feature: Login features
       | problem_user            | secret_sauce  |
       | performance_glitch_user | secret_sauce  |
 
+  @login
   Scenario Outline: Login doesn't work for <username> with incorrect <password>
     Given I have opened the browser
     When I open Swaglabs website

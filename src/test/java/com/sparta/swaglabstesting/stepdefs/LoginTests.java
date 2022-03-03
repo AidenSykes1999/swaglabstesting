@@ -1,4 +1,4 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.stepdefs;
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
 import io.cucumber.java.After;
@@ -15,20 +15,20 @@ public class LoginTests {
     private WebDriver webDriver;
     private LoginPage login;
 
-    @Before
+    @Before("@login")
     public void setup(){
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
         login = new LoginPage(webDriver);
     }
 
-    @After
+    @After("@login")
     public void tearDown() {
         webDriver.quit();
     }
 
     @Given("I have opened the browser")
-    public void openBroser(){
+    public void openBrowser(){
         webDriver = new ChromeDriver();
     }
 

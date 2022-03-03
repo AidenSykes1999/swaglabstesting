@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class InventoryPage extends Page {
 
     private By inventoryList = new By.ByClassName("inventory_list");
@@ -44,10 +46,11 @@ public class InventoryPage extends Page {
 
         String priceString = getProduct(index)
                 .findElement(By.className("inventory_item_price")).getText();
+        priceString = priceString.replaceAll("[$]", "");
 
-        System.out.println(priceString);
+        double price = Double.parseDouble(priceString);
 
-        return 0;
+        return price;
     }
 
     public InventoryPage addOrRemoveProductFromCart(int index) {
@@ -76,6 +79,13 @@ public class InventoryPage extends Page {
                 .get(index);
 
         return product;
+    }
+
+    public int getProductCount() {
+        List<WebElement> products = getWebDriver().findElement(inventoryList)
+                .findElements(By.className("inventory_item"));
+
+        return products.size();
     }
 
     public CartPage goToCart() {

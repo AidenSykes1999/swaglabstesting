@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class DriverTest {
+
     private static WebDriverManager driverManager;
     private static WebDriver driver;
-
 
     @AfterEach
     public void tearDown() {
@@ -20,9 +20,13 @@ public class DriverTest {
 
     @Test
     public void testURL() {
+
         driverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
         driver = driverManager.getDriver();
+
         driver.get("https://www.saucedemo.com/");
         Assert.assertEquals("https://www.saucedemo.com/", driver.getCurrentUrl());
+
     }
+
 }

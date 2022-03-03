@@ -24,12 +24,6 @@ public class LoginPage extends Page {
 
         getWebDriver().findElement(username).sendKeys(userName);
 
-        // try {
-        //     Thread.sleep(3000);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
-
         return this;
     }
 
@@ -37,12 +31,6 @@ public class LoginPage extends Page {
     public LoginPage enterPassword(String pass){
 
         getWebDriver().findElement(password).sendKeys(pass);
-
-        // try {
-        //     Thread.sleep(3000);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
 
         return this;
     }
@@ -52,11 +40,6 @@ public class LoginPage extends Page {
 
         getWebDriver().findElement(loginButton).click();
 
-        // try {
-        //     Thread.sleep(3000);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
     }
 
     public InventoryPage loginGoToInventoryPage(String userName, String password) {
