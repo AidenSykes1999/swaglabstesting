@@ -3,6 +3,8 @@ package com.sparta.swaglabstesting.pom;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 public class CheckoutStepTwoPage extends Page {
 
     private String numberRegex;
@@ -39,5 +41,13 @@ public class CheckoutStepTwoPage extends Page {
 
     public void finishToCheckoutComplete(){
         getWebDriver().findElement(By.id("finish")).click();
+    }
+
+    public List<Integer> getInventoryItemPrices(){
+    return getWebDriver().findElements(By.className("inventory_item_price"))
+            .stream()
+            .map(we-> Integer.parseInt(we.getText().replace(this.numberRegex,"")))
+            .toList();
+
     }
 }
