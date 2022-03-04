@@ -4,26 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Optional;
+
+
 public class CheckoutStepOnePage extends Page {
-
-    public static void main(String[] args) {
-
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        WebDriver webDriver = new ChromeDriver();
-        webDriver.get("https://www.saucedemo.com");
-        //login
-
-        webDriver.findElement(By.id("user-name")).sendKeys("standard_user");
-        webDriver.findElement(By.id("password")).sendKeys("secret_sauce");
-        webDriver.findElement(By.id("login-button")).click();
-        webDriver.get("https://www.saucedemo.com/checkout-step-one.html");
-        CheckoutStepOnePage checkoutPageOne = new CheckoutStepOnePage(webDriver);
-        checkoutPageOne.goToCart();
-
-    }
 
     public CheckoutStepOnePage(WebDriver webDriver){
         super(webDriver);
+    }
+
+    public void showNavBar(){
+        getWebDriver().findElement(By.id("react-burger-menu-btn")).click();
     }
 
     public CartPage goToCart(){
@@ -42,15 +33,43 @@ public class CheckoutStepOnePage extends Page {
 
     }
 
-    public void enterFirstName(String firstName){
-        getWebDriver().findElement(By.id("first-name")).sendKeys(firstName);
+    public CheckoutStepOnePage enterFirstName(String firstName){
+
+        if(firstName != null) getWebDriver().findElement(By.id("first-name")).sendKeys(firstName);
+        return this;
     }
 
-    public void enterLastName(String lastName){
-        getWebDriver().findElement(By.id("last-name")).sendKeys(lastName);
+    public CheckoutStepOnePage enterLastName(String lastName){
+        if(lastName != null) getWebDriver().findElement(By.id("last-name")).sendKeys(lastName);
+        return this;
     }
 
-    public void enterZipCode(String zipCode){
+    public CheckoutStepOnePage enterPostCode(String postCode){
+        if (postCode != null) getWebDriver().findElement(By.id("postal-code")).sendKeys(postCode);
+        return this;
+    }
+
+    public CheckoutStepTwoPage clickContinueSuccessful(){
+        getWebDriver().findElement(By.id("continue")).click();
+        return new CheckoutStepTwoPage(getWebDriver());
+    }
+
+    public CheckoutStepOnePage clickContinueFailed(){
+        getWebDriver().findElement(By.id("continue")).click();
+        return new CheckoutStepOnePage(getWebDriver());
+    }
+
+    public String getErrorText(){
+        return getWebDriver().findElement(By.className("error-message-container")).getText();
+    }
+
+    public CheckoutStepOnePage clickErrorButton(){
+        getWebDriver().findElement(By.className("error-button")).click();
+        return this;
+    }
+
+    public CheckoutStepOnePage enterZipCode(String zipCode){
         getWebDriver().findElement(By.id("postal-code")).sendKeys(zipCode);
+        return this;
     }
 }

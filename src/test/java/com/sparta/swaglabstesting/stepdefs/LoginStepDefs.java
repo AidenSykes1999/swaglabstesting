@@ -1,4 +1,4 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.stepdefs;
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
 import io.cucumber.java.After;
@@ -10,20 +10,25 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginTests {
+public class LoginStepDefs {
 
     private WebDriver webDriver;
     private LoginPage login;
 
-    @Before
+    @Before("@login")
     public void setup(){
         POMUtils.setDriverLocation();
         webDriver = POMUtils.setUpWebDriver();
         login = new LoginPage(webDriver);
     }
 
+    @After("@login")
+    public void tearDown() {
+        webDriver.quit();
+    }
+
     @Given("I have opened the browser")
-    public void openBroser(){
+    public void openBrowser(){
         webDriver = new ChromeDriver();
     }
 
@@ -125,8 +130,4 @@ public class LoginTests {
         return login.getErrorMessage().contains("Username and password do not match any user in this service");
     }
 
-    @After
-    public void tearDown() {
-        webDriver.quit();
-    }
 }
