@@ -12,10 +12,12 @@ public class LoginPage extends Page {
     private By loginButton = new By.ById("login-button");
     //locator for error message
     private By errorMessage = new By.ByClassName("error");
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
         getWebDriver().get("https://www.saucedemo.com/");
     }
+
     //method to enter username
     public LoginPage enterUsername(String userName){
 

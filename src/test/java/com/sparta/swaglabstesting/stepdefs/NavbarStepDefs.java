@@ -53,9 +53,7 @@ public class NavbarStepDefs {
 
     @When("I go to the inventory page")
     public void iGoToTheInventoryPage() {
-
         login.clickLoginButton();
-
     }
 
     @And("The navigation sidebar should exist")

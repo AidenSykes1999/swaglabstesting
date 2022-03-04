@@ -29,5 +29,6 @@ public class ChromeDriverManager extends WebDriverManager{
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         webDriver = new ChromeDriver(options);
+
     }
 }

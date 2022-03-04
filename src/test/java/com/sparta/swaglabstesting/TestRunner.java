@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         plugin = {"progress","html:target/testReport.html", "json:target/jsonReport.json"},
         monochrome = true,
         publish = true,
-        tags= "@login")
+        tags= "@login"
+        )
 
 public class TestRunner {
 }

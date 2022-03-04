@@ -11,7 +11,7 @@ public class POMUtils {
     }
 
     public static void setDriverLocation() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
     }
 
     public static WebDriver setUpWebDriver() {

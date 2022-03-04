@@ -72,4 +72,5 @@ public class InventorySortingStepDefs {
     public void iShouldSeeTheProductsSortedReverseAlphabetically() {
         Assertions.assertTrue(inventoryPage.isProductsSortedReverseAlphabetically());
     }
+
 }
