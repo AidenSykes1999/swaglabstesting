@@ -1,4 +1,4 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.pom;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +11,7 @@ public class POMUtils {
     }
 
     public static void setDriverLocation() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
     }
 
     public static WebDriver setUpWebDriver() {

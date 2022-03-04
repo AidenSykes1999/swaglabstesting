@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverTest {
+
     private static WebDriverManager driverManager;
     private static WebDriver driver;
 

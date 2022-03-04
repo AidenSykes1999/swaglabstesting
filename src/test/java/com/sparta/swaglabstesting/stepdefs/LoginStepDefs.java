@@ -21,12 +21,8 @@ public class LoginStepDefs {
 
     @Before("@login")
     public void setup(){
-//        POMUtils.setDriverLocation();
-//        webDriver = POMUtils.setUpWebDriver();
-//        login = new LoginPage(webDriver);
         driverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
         webDriver = driverManager.getDriver();
-        login = new LoginPage(webDriver);
     }
 
     @After("@login")

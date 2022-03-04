@@ -1,18 +1,21 @@
-package com.sparta.swaglabstesting;
+package com.sparta.swaglabstesting.pom;
 
 import org.openqa.selenium.WebDriver;
 
-public class InventoryPage {
+public abstract class Page {
 
     private WebDriver webDriver;
 
-    public InventoryPage(WebDriver webDriver) {
-        webDriver.get("https://news.ycombinator.com/");
+    public Page (WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
     public String getCurrentUrl() {
         return webDriver.getCurrentUrl();
+    }
+
+    public WebDriver getWebDriver() {
+        return webDriver;
     }
 
 }
