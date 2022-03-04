@@ -9,7 +9,9 @@ public class CheckoutComplete {
     public CheckoutComplete(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
-
+    public String getCurrentUrl(){
+        return webDriver.getCurrentUrl();
+    }
     public InventoryPage clickBackHome(){
         return new InventoryPage(webDriver);
     }

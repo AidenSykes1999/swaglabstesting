@@ -1,5 +1,6 @@
 package com.sparta.swaglabstesting;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CheckoutStepTwoPage {
@@ -11,11 +12,11 @@ public class CheckoutStepTwoPage {
         this.webDriver = webDriver;
         this.numberRegex = "[^0-9]";
     }
-//
-//    public void showNavBar(){
-//        webDriver.findElement(By.id("react-burger-menu-btn")).click();
-//    }
-//
+
+    public void showNavBar(){
+        webDriver.findElement(By.id("react-burger-menu-btn")).click();
+    }
+
 //    public Cart goToCart(){
 //        webDriver.findElement(By.className("shopping_cart_link")).click();
 //        return new Cart(webDriver);
