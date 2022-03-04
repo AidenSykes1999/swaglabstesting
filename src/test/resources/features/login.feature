@@ -1,7 +1,7 @@
-Feature: Login features
+Feature: As a customer I want to be able to login onto the website, so I can access my account and shop
 
   @login
-  Scenario: Login functionality exists
+  Scenario: As a customer I want that the login functionality exists
     Given I have opened the browser
     When I open Swaglabs website
     Then username box should exist
@@ -9,7 +9,7 @@ Feature: Login features
     And login button should exist
 
   @login
-  Scenario Outline: Login works for <username> with correct credentials
+  Scenario Outline: As a customer I want the login to work for <username> with correct credentials
     Given I have opened the browser
     When I open Swaglabs website
     And I enter the username <username>
@@ -23,7 +23,7 @@ Feature: Login features
       | performance_glitch_user | secret_sauce  |
 
   @login
-  Scenario Outline: Login doesn't work for <username> with incorrect <password>
+  Scenario Outline: As a customer, I want that the login doesn't work for <username> with incorrect <password>
     Given I have opened the browser
     When I open Swaglabs website
     And I enter the username <username>
