@@ -51,8 +51,6 @@ public class InventoryPage extends Page {
 
         double price = Double.parseDouble(priceString);
 
-        System.out.println(price);
-
         return price;
     }
 
@@ -60,21 +58,6 @@ public class InventoryPage extends Page {
         getProduct(index).findElement(By.className("btn_inventory")).click();
         return this;
     }
-
-    // public Boolean isProductInCart(int index) {
-    //
-    //     String status = getProduct(index).findElement(By.className("btn_btn_inventory")).getText();
-    //
-    //     if (status.equals("Remove")) {
-    //         return true;
-    //     }
-    //     else if (status.equals("Add to cart")) {
-    //         return false;
-    //     }
-    //
-    //     return null;
-    //
-    // }
 
     public WebElement getProduct(int index) {
         WebElement product = getWebDriver().findElement(inventoryList)
@@ -200,12 +183,10 @@ public class InventoryPage extends Page {
         return new ProductViewPage(getWebDriver(), productName);
     }
 
-    //
-    // public Navbar openNavbar() {
-    //     webDriver.findElement(navbarButton).click();
-    //     return new Navbar(webDriver);
-    // }
-    //
+    public NavbarPage goToNavbar() {
+        getWebDriver().findElement(navbarButton).click();
+        return new NavbarPage(getWebDriver());
+    }
 
     public String goToTwitter() {
         getWebDriver().findElement(socialMedia).findElement(By.linkText("Twitter")).click();
@@ -222,4 +203,17 @@ public class InventoryPage extends Page {
         return getCurrentUrl();
     }
 
+    public int getTopRightCartNumber() {
+
+        String countString = "";
+
+        try {
+            countString = getWebDriver().findElement(shoppingCart)
+                    .findElement(By.className("shopping_cart_badge")).getText();
+        } catch (Exception e) {
+            return 0;
+        }
+
+        return Integer.parseInt(countString);
+    }
 }

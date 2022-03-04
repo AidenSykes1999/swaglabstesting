@@ -51,4 +51,5 @@ public class CheckoutStepTwoPage extends Page {
             .map(we-> Integer.parseInt(we.getText().replace(this.numberRegex,"")))
             .toList();
     }
+
 }
