@@ -22,7 +22,6 @@ public class LoginStepDefs {
     @Before("@login")
     public void setup(){
         driverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
-        webDriver = driverManager.getDriver();
     }
 
     @After("@login")
@@ -32,12 +31,12 @@ public class LoginStepDefs {
 
     @Given("I have opened the browser")
     public void openBrowser(){
-        webDriver = new ChromeDriver();
+        webDriver = driverManager.getDriver();
     }
 
     @When("I open Swaglabs website")
     public void goToSwaglabs(){
-        webDriver.navigate().to("https://www.saucedemo.com/");
+        login = new LoginPage(webDriver);
     }
 
     @Then("username box should exist")

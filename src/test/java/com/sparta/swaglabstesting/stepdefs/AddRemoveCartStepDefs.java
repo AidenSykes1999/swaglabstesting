@@ -4,6 +4,10 @@ import com.sparta.swaglabstesting.pom.CartPage;
 import com.sparta.swaglabstesting.pom.InventoryPage;
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
+import com.sparta.swaglabstesting.webdrivers.ChromeDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -19,11 +23,12 @@ public class AddRemoveCartStepDefs {
     private LoginPage login;
     private InventoryPage inventoryPage;
     private CartPage cartPage;
+    private WebDriverManager webDriverManager;
 
     @Before("@add-remove-cart")
     public void beforeScenario() {
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
+        webDriverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = webDriverManager.getDriver();
         login = new LoginPage(webDriver);
     }
 

@@ -1,6 +1,9 @@
 package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.*;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,11 +20,12 @@ public class CheckoutStepDefs {
     private CheckoutStepTwoPage checkoutStepTwoPage;
     private CartPage cartPage;
     private CheckoutComplete checkoutComplete;
+    private WebDriverManager webDriverManager;
 
     @Given("I am on the checkout step one page")
     public void iAmOnTheCheckoutStepOnePage() {
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
+        webDriverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = webDriverManager.getDriver();
         checkoutStepOnePage = new LoginPage(webDriver)
                 .loginGoToInventoryPage("standard_user", "secret_sauce")
                 .goToCart()

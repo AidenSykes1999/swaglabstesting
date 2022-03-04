@@ -4,6 +4,9 @@ import com.sparta.swaglabstesting.pom.CartPage;
 import com.sparta.swaglabstesting.pom.InventoryPage;
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,15 +15,16 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 public class NavigationStepDefs {
-    WebDriver webDriver;
-    CartPage cartPage;
-    InventoryPage inventoryPage;
+    private WebDriver webDriver;
+    private CartPage cartPage;
+    private InventoryPage inventoryPage;
+    private WebDriverManager webDriverManager;
 
 
     @Given("I navigate to the cart page")
     public void iNavigateToTheCartPage() {
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
+        webDriverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = webDriverManager.getDriver();
         cartPage = new LoginPage(webDriver)
                 .loginGoToInventoryPage("standard_user", "secret_sauce")
                 .goToCart();
