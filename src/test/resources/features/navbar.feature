@@ -1,6 +1,6 @@
-Feature: Navbar Features
+Feature: As a customer, I should be able to use the navigation menu to navigate to different areas of the website.
 
-  Scenario: Navbar is responsive to user input
+  Scenario: The navbar should be responsive to user interaction
     Given I have logged into swaglabs
     When I go to the inventory page
     And The navigation sidebar should exist
