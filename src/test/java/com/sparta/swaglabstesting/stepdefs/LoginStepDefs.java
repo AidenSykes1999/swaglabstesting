@@ -37,7 +37,7 @@ public class LoginStepDefs {
 
     @When("I open Swaglabs website")
     public void goToSwaglabs(){
-        webDriver.navigate().to("https://www.saucedemo.com/");
+        login = new LoginPage(webDriver);
     }
 
     @Then("username box should exist")
