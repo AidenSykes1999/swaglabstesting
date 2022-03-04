@@ -8,9 +8,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {"progress","html:target/testReport.html", "json:target/jsonReport.json"},
-        glue = {"src/test/java/com/sparta/swaglabstesting"},
+//        glue = {"src/test/java/com/sparta/swaglabstesting"},
         monochrome = true,
-        publish = true)
+        publish = true,
+        tags= "@login")
 
 public class TestRunner {
 }
