@@ -59,21 +59,6 @@ public class InventoryPage extends Page {
         return this;
     }
 
-    // public Boolean isProductInCart(int index) {
-    //
-    //     String status = getProduct(index).findElement(By.className("btn_btn_inventory")).getText();
-    //
-    //     if (status.equals("Remove")) {
-    //         return true;
-    //     }
-    //     else if (status.equals("Add to cart")) {
-    //         return false;
-    //     }
-    //
-    //     return null;
-    //
-    // }
-
     public WebElement getProduct(int index) {
         WebElement product = getWebDriver().findElement(inventoryList)
                 .findElements(By.className("inventory_item"))
