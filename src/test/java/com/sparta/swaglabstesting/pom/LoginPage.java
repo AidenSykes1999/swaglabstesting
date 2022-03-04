@@ -46,6 +46,9 @@ public class LoginPage extends Page {
 
         return new InventoryPage(getWebDriver());
     }
+    public InventoryPage loginGoToInventoryPage() {
+        return new InventoryPage(getWebDriver());
+    }
 
     //method to see if login page is opened
     public boolean isLoginPageOpen(){

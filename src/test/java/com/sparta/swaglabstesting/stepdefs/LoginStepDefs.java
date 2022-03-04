@@ -1,6 +1,9 @@
 package com.sparta.swaglabstesting.stepdefs;
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.POMUtils;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -14,12 +17,12 @@ public class LoginStepDefs {
 
     private WebDriver webDriver;
     private LoginPage login;
+    private WebDriverManager driverManager;
 
     @Before("@login")
     public void setup(){
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
-        login = new LoginPage(webDriver);
+        driverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = driverManager.getDriver();
     }
 
     @After("@login")
