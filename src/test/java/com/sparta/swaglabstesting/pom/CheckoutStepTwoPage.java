@@ -11,7 +11,7 @@ public class CheckoutStepTwoPage extends Page {
 
     public CheckoutStepTwoPage(WebDriver webDriver) {
         super(webDriver);
-        this.numberRegex = "[^0-9]";
+        this.numberRegex = "[^\\d]";
     }
 
     public CartPage goToCart(){
@@ -26,17 +26,18 @@ public class CheckoutStepTwoPage extends Page {
 
     public int getTaxCents(){
         String taxText = getWebDriver().findElement(By.className("summary_tax_label")).getText();
-        return Integer.parseInt(taxText.replace(this.numberRegex,""));
+        return Integer.parseInt(taxText.replaceAll(this.numberRegex,""));
     }
 
     public int getTotalCents(){
         String totalText = getWebDriver().findElement(By.className("summary_total_label")).getText();
-        return Integer.parseInt(totalText.replace(this.numberRegex, ""));
+        return Integer.parseInt(totalText.replaceAll(this.numberRegex, ""));
     }
 
     public int getItemTotalCents(){
         String totalText = getWebDriver().findElement(By.className("summary_subtotal_label")).getText();
-        return Integer.parseInt(totalText.replace(this.numberRegex, ""));
+
+        return Integer.parseInt(totalText.replaceAll(this.numberRegex, ""));
     }
 
     public CheckoutComplete finishToCheckoutComplete(){
