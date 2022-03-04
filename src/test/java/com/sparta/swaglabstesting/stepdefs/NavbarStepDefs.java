@@ -2,7 +2,6 @@ package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.NavbarPage;
-import com.sparta.swaglabstesting.pom.POMUtils;
 import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
 import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
 import com.sparta.swaglabstesting.webdrivers.WebDriverType;

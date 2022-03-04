@@ -18,8 +18,12 @@ public class WebDriverManagerFactory {
                 webDriverManager = new EdgeDriverManager();
                 break;
             }
-            default -> {
+            case CHROME -> {
                 webDriverManager = new ChromeDriverManager();
+                break;
+            }
+            default -> {
+                webDriverManager = null;
                 break;
             }
         }
