@@ -10,7 +10,6 @@ Feature: Checkout Step One
 
   Scenario: At least one of the Inputs are Invalid
     Given I have Access to Checkout Step One Page
-
     And I enter a <first name>
     And I enter a <last name>
     And I enter a  <postal code>
