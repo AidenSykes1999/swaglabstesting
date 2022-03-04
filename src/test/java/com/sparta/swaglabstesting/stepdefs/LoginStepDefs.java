@@ -1,6 +1,5 @@
 package com.sparta.swaglabstesting.stepdefs;
 import com.sparta.swaglabstesting.pom.LoginPage;
-import com.sparta.swaglabstesting.pom.POMUtils;
 import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
 import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
 import com.sparta.swaglabstesting.webdrivers.WebDriverType;
@@ -11,7 +10,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginStepDefs {
 
@@ -22,7 +20,6 @@ public class LoginStepDefs {
     @Before("@login")
     public void setup(){
         driverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
-        webDriver = driverManager.getDriver();
     }
 
     @After("@login")
@@ -32,7 +29,7 @@ public class LoginStepDefs {
 
     @Given("I have opened the browser")
     public void openBrowser(){
-        webDriver = new ChromeDriver();
+        webDriver = driverManager.getDriver();
     }
 
     @When("I open Swaglabs website")

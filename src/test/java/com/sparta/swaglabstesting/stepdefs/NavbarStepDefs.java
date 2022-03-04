@@ -2,7 +2,9 @@ package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.LoginPage;
 import com.sparta.swaglabstesting.pom.NavbarPage;
-import com.sparta.swaglabstesting.pom.POMUtils;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -17,12 +19,13 @@ public class NavbarStepDefs {
     private WebDriver webDriver;
     private LoginPage login;
     private NavbarPage navbar;
+    private WebDriverManager webDriverManager;
 
     // Begin Selenium
     @Before("@navbar")
     public void setup(){
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
+        webDriverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = webDriverManager.getDriver();
         login = new LoginPage(webDriver);
         navbar = new NavbarPage(webDriver);
     }

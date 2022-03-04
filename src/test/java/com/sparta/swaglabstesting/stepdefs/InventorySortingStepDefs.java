@@ -2,7 +2,9 @@ package com.sparta.swaglabstesting.stepdefs;
 
 import com.sparta.swaglabstesting.pom.InventoryPage;
 import com.sparta.swaglabstesting.pom.LoginPage;
-import com.sparta.swaglabstesting.pom.POMUtils;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManager;
+import com.sparta.swaglabstesting.webdrivers.WebDriverManagerFactory;
+import com.sparta.swaglabstesting.webdrivers.WebDriverType;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -10,18 +12,17 @@ import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-import java.util.ArrayList;
-
 public class InventorySortingStepDefs {
 
     private WebDriver webDriver;
     private LoginPage login;
     private InventoryPage inventoryPage;
+    private WebDriverManager webDriverManager;
 
     @Before("@inventory-sorting")
     public void beforeScenario() {
-        POMUtils.setDriverLocation();
-        webDriver = POMUtils.setUpWebDriver();
+        webDriverManager = WebDriverManagerFactory.getDriverManager(WebDriverType.CHROME);
+        webDriver = webDriverManager.getDriver();
         login = new LoginPage(webDriver);
     }
 
