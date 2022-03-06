@@ -25,7 +25,7 @@
 * [**Testing**](#testing)
 * [**Software & Dependencies**](#software-&-dependencies)
   * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](#intellij-idea-2021.3.1-(ultimate-edition))
-  * [JDK 17.0.2](#[JDK-17.0.2](https://jdk.java.net/17/))
+  * [JDK 17.0.2](#jdk-1702)
   * [Apache Maven](#software--dependencies/apache-maven)
   * [JUnit Jupiter API 5.8.2](#junit-jupiter-api)
   * [Cucumber JVM: Java 7.2.3](#cucumber-JVM:-Java-7.2.3)
