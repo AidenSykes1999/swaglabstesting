@@ -83,12 +83,12 @@ User stories used for the tests:
 Some internal JUnit testing has also been done to test the web drivers.
 
 ### Software & Dependencies
-* [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](https://www.jetbrains.com/idea/download/#section=windows)
-* [JDK 17.0.2](https://jdk.java.net/17/)
-* [Apache Maven](https://maven.apache.org/)
+#### [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](https://www.jetbrains.com/idea/download/#section=windows)
+#### [JDK 17.0.2](https://jdk.java.net/17/)
+#### [Apache Maven](https://maven.apache.org/)
   * _**Note:** This dependency can be imported using IntelliJ._
   * _Go to **"File" > "New Project"** and then selecting **"Maven"** as the project structure._
-* [JUnit Jupiter API 5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.8.2)
+#### [JUnit Jupiter API 5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.8.2)
   * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
   * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
 ```xml
@@ -98,7 +98,7 @@ Some internal JUnit testing has also been done to test the web drivers.
         <version>5.8.2</version>
     </dependency>
 ```
-* [Cucumber JVM: Java 7.2.3](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/7.2.3)
+#### [Cucumber JVM: Java 7.2.3](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/7.2.3)
   * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
   * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
 ```xml
@@ -108,7 +108,7 @@ Some internal JUnit testing has also been done to test the web drivers.
         <version>7.2.3</version>
     </dependency> 
 ```
-* [Cucumber JVM: JUnit 7.2.3](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/7.2.3)
+#### [Cucumber JVM: JUnit 7.2.3](https://mvnrepository.com/artifact/io.cucumber/cucumber-java/7.2.3)
   * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
   * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
 ```xml
@@ -118,7 +118,7 @@ Some internal JUnit testing has also been done to test the web drivers.
         <version>7.2.3</version>
     </dependency>
 ```
-* [Selenium Java 4.1.2](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.1.2)
+#### [Selenium Java 4.1.2](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.1.2)
   * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
   * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
 ```xml
