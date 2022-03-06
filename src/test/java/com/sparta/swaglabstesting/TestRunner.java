@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         plugin = {"progress","html:target/testReport.html", "json:target/jsonReport.json"},
         monochrome = true,
-        publish = true,
-        tags= "@inventory-sorting"
+        publish = true
+
+//        tags= "@inventory-sorting"
         )
 
 public class TestRunner {
