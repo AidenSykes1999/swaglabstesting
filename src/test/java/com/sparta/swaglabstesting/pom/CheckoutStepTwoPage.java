@@ -8,7 +8,10 @@ import java.util.List;
 public class CheckoutStepTwoPage extends Page {
 
     private String numberRegex;
-
+    private By navbarButton = new By.ById("react-burger-menu-btn");
+    private By facebook = new By.ByClassName("social_facebook");
+    private By linkedin = new By.ByClassName("social_linkedin");
+    private By twitter = new By.ByClassName("social_twitter");
     public CheckoutStepTwoPage(WebDriver webDriver) {
         super(webDriver);
         this.numberRegex = "[^\\d]";
@@ -51,6 +54,24 @@ public class CheckoutStepTwoPage extends Page {
             .map(we-> Integer.parseInt(we.getText().replace(this.numberRegex,"")))
             .toList();
     }
+
+    public NavbarPage goToNavbar() {
+        getWebDriver().findElement(navbarButton).click();
+        return new NavbarPage(getWebDriver());
+    }
+
+    public void goToFacebook(){
+        getWebDriver().findElement(facebook).click();
+    }
+
+    public void goToLinkedin(){
+        getWebDriver().findElement(linkedin).click();
+    }
+
+    public void goToTwitter(){
+        getWebDriver().findElement(twitter).click();
+    }
+
 
 }
 

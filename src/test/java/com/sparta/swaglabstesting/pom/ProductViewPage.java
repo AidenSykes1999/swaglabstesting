@@ -8,8 +8,12 @@ public class ProductViewPage extends Page {
     private By inventoryLink = new By.ByClassName("inventory_details_back_button");
     private By shoppingCart = new By.ById("shopping_cart_container");
     private By productAddRemoveButton = new By.ByClassName("btn_inventory");
-
+    private By navbarButton = new By.ById("react-burger-menu-btn");
+    private By backToProducts = new By.ById("back-to-products");
     private String productName;
+    private By facebook = new By.ByClassName("social_facebook");
+    private By linkedin = new By.ByClassName("social_linkedin");
+    private By twitter = new By.ByClassName("social_twitter");
 
     public ProductViewPage(WebDriver webDriver, String productName){
         super(webDriver);
@@ -53,5 +57,28 @@ public class ProductViewPage extends Page {
         getWebDriver().findElement(shoppingCart).click();
         return new CartPage(getWebDriver());
     }
+
+    public InventoryPage goBackToInventory(){
+        getWebDriver().findElement(backToProducts).click();
+        return new InventoryPage(getWebDriver());
+    }
+
+    public NavbarPage goToNavbar() {
+        getWebDriver().findElement(navbarButton).click();
+        return new NavbarPage(getWebDriver());
+    }
+
+    public void goToFacebook(){
+        getWebDriver().findElement(facebook).click();
+    }
+
+    public void goToLinkedin(){
+        getWebDriver().findElement(linkedin).click();
+    }
+
+    public void goToTwitter(){
+        getWebDriver().findElement(twitter).click();
+    }
+
 
 }

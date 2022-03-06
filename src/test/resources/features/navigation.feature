@@ -1,114 +1,153 @@
-@Navigation
 Feature: As a customer I want to be able navigate round the website
 
-
-#  Go to the cart from different places
+  @navigation
   Scenario Outline: I want to access the cart
-    Given I am on the <page> page
-    When I click on the cart icon
+    Given I navigate to the <page> page
+    When I click on the <page> page cart icon
     Then I am on the cart page
     Examples:
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
-#  Continue shopping
+  @navigation
   Scenario: I want to go back to the products from the cart
     Given I navigate to the cart page
     When I click continue shopping
     Then I arrive at the products page
 
-#  Go back from individual products
-  Scenario Outline: : I want to go back to the inventory from each product page
-    Given I on on the <product> page
+  @navigation
+  Scenario: I want to go back to the inventory from each product page
+    Given I navigate to the random product page
     When I click back to products
     Then I go back to the inventory page
-    Examples:
 
-#  Go to checkout your information
+  @navigation
   Scenario: I want to checkout from the cart page
     Given I navigate to the cart page
     When I click checkout
     Then I am on the checkout your information page
 
-#  Cancel from checkout: your information
+  @navigation
   Scenario: I want to cancel checking out when I am entering my information
     Given I navigate to the checkout your information page
-    When I click cancel
+    When I click cancel from your information
     Then I am on the cart page
 
-#  Go to checkout: overview
+  @navigation
   Scenario: I want to see an overview of the checkout
-    Given I have entered my information
+    Given I navigate to the checkout your information page
+    And I have entered my information
     When I click continue
-    Then I am on the checkout: overview page
+    Then I am on the checkout overview page
 
-#  Cancel from checkout overview
+  @navigation
   Scenario: I want to cancel checking out from the checkout overview page
-    Given I am on the checkout overview page
-    When I click on cancel
+    Given I navigate to the checkout overview page
+    When I click on cancel from overview
     Then I go back to the inventory page
 
-#  Finish from checkout overview
+  @navigation
   Scenario: I want to finish checking out
-    Given I am on the checkout overview page
-    When I click on finish
-    Then I go back to the checkout complete page
+    Given I navigate to the checkout overview page
+    When I click on finish checkout
+    Then I go to the checkout complete page
 
-#  After finishing go back to the home page
+  @navigation
   Scenario: I want to go back to the home page after checking out
-    Given I am on the checkout: finish page
+    Given I navigate to the checkout finish page
     When I click on Back Home
     Then I go back to the inventory page
 
-#  Go to facebook
-  Scenario Outline: I want to click on the facebook link
-    Given I am on the <page>
-    When I click the facebook icon
-    Then I go to the sauce labs facebook
-    Examples:
-#    inventory page, cart, check1, check2, individual products
-
-#  Go to linkedin
+  @navigation
   Scenario Outline: I want to click on the linkedin link
-    Given I am on the <page>
-    When I click the facebook icon
+    Given I navigate to the <page> page
+    When I click the <page> page linkedin icon
     Then I go to the sauce labs linkedin
     Examples:
-#    inventory page, cart, check1, check2, individual products
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
-  #  Go to twitter
+
+  @navigation
   Scenario Outline: I want to click on the twitter link
-    Given I am on the <page>
-    When I click the facebook icon
+    Given I navigate to the <page> page
+    When I click the <page> page twitter icon
     Then I go to the sauce labs twitter
     Examples:
-#    inventory page, cart, check1, check2, finish, individual products
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
+  @navigation
+  Scenario Outline: I want to click on the facebook link
+    Given I navigate to the <page> page
+    When I click the <page> page facebook icon
+    Then I go to the sauce labs facebook
+    Examples:
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
-  ## might not need these as aiden might have covered it
-  #  Use navbar to go to all items
+  @navigation
   Scenario Outline: I want to click on navbar all items link
-    Given I am on the <page>
-    When I click the burger icon
+    Given I navigate to the <page> page
+    When I click the <page> page burger icon
     And I click all items
     Then I go back to the inventory page
     Examples:
-#    inventory page, cart, check1, check2, finish, individual products
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
-  #  Use navbar to go to all items
+
+  @navigation
   Scenario Outline: I want to click on navbar about link
-    Given I am on the <page>
-    When I click the burger icon
+    Given I navigate to the <page> page
+    When I click the <page> page burger icon
     And I click about
     Then I go to the sauce labs website
     Examples:
-#    inventory page, cart, check1, check2, finish, individual products
+      |page|
+      |cart|
+      |products|
+      |checkout finish|
+      |checkout overview|
+      |checkout your information|
+      |random product|
 
-    #  Use navbar to logout
+  @navigation
   Scenario Outline: I want to click on navbar logout link
-    Given I am on the <page>
-    When I click the burger icon
+    Given I navigate to the <page> page
+    When I click the <page> page burger icon
     And I click logout
     Then I go back to the login page
     Examples:
-#    inventory page, cart, check1, check2, finish, individual products
-
-
+    |page|
+    |cart|
+    |products|
+    |checkout finish|
+    |checkout overview|
+    |checkout your information|
+    |random product|
