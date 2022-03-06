@@ -2,12 +2,12 @@ package com.sparta.swaglabstesting.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.Optional;
-
 
 public class CheckoutStepOnePage extends Page {
+    private By navbarButton = new By.ById("react-burger-menu-btn");
+    private By facebook = new By.ByClassName("social_facebook");
+    private By linkedin = new By.ByClassName("social_linkedin");
+    private By twitter = new By.ByClassName("social_twitter");
 
     public CheckoutStepOnePage(WebDriver webDriver){
         super(webDriver);
@@ -72,4 +72,22 @@ public class CheckoutStepOnePage extends Page {
         getWebDriver().findElement(By.id("postal-code")).sendKeys(zipCode);
         return this;
     }
+
+    public NavbarPage goToNavbar() {
+        getWebDriver().findElement(navbarButton).click();
+        return new NavbarPage(getWebDriver());
+    }
+
+    public void goToFacebook(){
+        getWebDriver().findElement(facebook).click();
+    }
+
+    public void goToLinkedin(){
+        getWebDriver().findElement(linkedin).click();
+    }
+
+    public void goToTwitter(){
+        getWebDriver().findElement(twitter).click();
+    }
+
 }

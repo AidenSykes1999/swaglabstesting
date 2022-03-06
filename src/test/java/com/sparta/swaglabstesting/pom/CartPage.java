@@ -1,5 +1,6 @@
 package com.sparta.swaglabstesting.pom;
 
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,12 +8,14 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CartPage extends Page {
-
-    //TODO you can check out with 0 items
-
     private By continueShoppingButton = new By.ById("continue-shopping");
     private By checkoutButton = new By.ById("checkout");
     private By cartList = new By.ByClassName("cart_list");
+    private By navbarButton = new By.ById("react-burger-menu-btn");
+    private By facebook = new By.ByClassName("social_facebook");
+    private By linkedin = new By.ByClassName("social_linkedin");
+    private By twitter = new By.ByClassName("social_twitter");
+    private By shoppingCart = new By.ById("shopping_cart_container");
 
     public CartPage(WebDriver webDriver){
         super(webDriver);
@@ -80,6 +83,28 @@ public class CartPage extends Page {
     public CheckoutStepOnePage goToCheckoutStepOne(){
         getWebDriver().findElement(checkoutButton).click();
         return new CheckoutStepOnePage(getWebDriver());
+    }
+
+    public NavbarPage goToNavbar() {
+        getWebDriver().findElement(navbarButton).click();
+        return new NavbarPage(getWebDriver());
+    }
+
+    public void goToFacebook(){
+        getWebDriver().findElement(facebook).click();
+    }
+
+    public void goToLinkedin(){
+        getWebDriver().findElement(linkedin).click();
+    }
+
+    public void goToTwitter(){
+        getWebDriver().findElement(twitter).click();
+    }
+
+    public CartPage goToCart() {
+        getWebDriver().findElement(shoppingCart).click();
+        return new CartPage(getWebDriver());
     }
 
 }

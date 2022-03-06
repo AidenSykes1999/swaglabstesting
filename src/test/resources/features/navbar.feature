@@ -1,5 +1,6 @@
 Feature: As a customer, I should be able to use the navigation menu to navigate to different areas of the website.
 
+  @navbar
   Scenario: As a customer the navbar should be responsive to user interaction
     Given I have logged into swaglabs
     When I go to the inventory page

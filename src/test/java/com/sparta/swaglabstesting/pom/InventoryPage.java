@@ -13,6 +13,9 @@ public class InventoryPage extends Page {
     private By navbarButton = new By.ById("react-burger-menu-btn");
     private By shoppingCart = new By.ById("shopping_cart_container");
     private By socialMedia = new By.ByClassName("social");
+    private By facebook = new By.ByClassName("social_facebook");
+    private By linkedin = new By.ByClassName("social_linkedin");
+    private By twitter = new By.ByClassName("social_twitter");
 
     public InventoryPage(WebDriver webDriver) {
         super(webDriver);
@@ -188,19 +191,16 @@ public class InventoryPage extends Page {
         return new NavbarPage(getWebDriver());
     }
 
-    public String goToTwitter() {
-        getWebDriver().findElement(socialMedia).findElement(By.linkText("Twitter")).click();
-        return getCurrentUrl();
+    public void goToLinkedin(){
+        getWebDriver().findElement(linkedin).click();
     }
 
-    public String goToFacebook() {
-        getWebDriver().findElement(socialMedia).findElement(By.linkText("Facebook")).click();
-        return getCurrentUrl();
+    public void goToFacebook(){
+        getWebDriver().findElement(facebook).click();
     }
 
-    public String goToLinkedIn() {
-        getWebDriver().findElement(socialMedia).findElement(By.linkText("LinkedIn")).click();
-        return getCurrentUrl();
+    public void goToTwitter(){
+        getWebDriver().findElement(twitter).click();
     }
 
     public int getTopRightCartNumber() {
