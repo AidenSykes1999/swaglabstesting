@@ -28,8 +28,9 @@
   - [JDK 17.0.2](#jdk-17.0.2)
   - [Apache Maven](#apache-maven)
   - [JUnit Jupiter API 5.8.2](#junit-jupiter-api)
-  - [Cucumber JVM: Java 7.2.3](#cucumber-jvm:-java-7.2.3)
-  - [Cucumber JVM: JUnit 7.2.3](#cucumber-jvm:-junit-7.2.3)
+  - [Cucumber JVM: Java 7.2.3](#Cucumber-JVM:-Java-7.2.3)
+  - [Cucumber JVM: JUnit 7.2.3](#Cucumber-JVM:-JUnit-7.2.3)
+  - [Selenium Java 4.1.2](#selenium-java-4.1.2)
 * [**How To Use**](#how-to-use)
   - [Downloading and opening the project](#downloading-and-opening-the-project)
   - [Setting up the web drivers](#setting-up-the-web-drivers)
@@ -75,6 +76,11 @@ on the potential user's needs.
 
 User stories used for the tests:
 
+![BDD1](images/bdd1.png)
+![BDD2](images/bdd2.png)
+![BDD3](images/bdd3.png)
+
+Some internal JUnit testing has also been done to test the web drivers.
 
 ### Software & Dependencies
 * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](https://www.jetbrains.com/idea/download/#section=windows)
@@ -112,12 +118,24 @@ User stories used for the tests:
         <version>7.2.3</version>
     </dependency>
 ```
+* [Selenium Java 4.1.2](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.1.2)
+  * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
+  * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
+```xml
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.1.2</version>
+    </dependency>
+```
 
 ### How To Use
 
 #### Downloading and opening the project
 1. Download the project by clicking Code > Download ZIP as shown below
+
 ![HowToDownload](images/howToDownload.png)
+
 2. Right-click on the downloaded file and press "Extract all"
 3. Open IntelliJ Community or Ultimate Edition and navigate to File > Open
 4. Select the unzipped project folder and press Ok
@@ -139,9 +157,11 @@ EdgeDriverPath= src/test/resources/drivers/msedgedriver
 The project structure should look like this:
 
 ![projectStructure](images/projectStructure.png)
+
 5. Inside stepDef files, specify which browser you wish to use, as shown below.
 You only need to change the word "CHROME". Available options are
 "CHROME", "OPERA", "EDGE", "FIREFOX".
+
 ![webDriverSetup](images/webDriverSetup.png)
 
 #### Running the tests
