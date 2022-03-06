@@ -20,6 +20,9 @@
 
 ## **Table Of Contents**
 * [**Overview**](#overview)
+* [**Project Requirements**](#project-requirements)
+* [**Project Management**](#project-management)
+* [**Testing**](#testing)
 * [**Software & Dependencies**](#software-&-dependencies)
   - [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](#intellij-idea-2021.3.1-(ultimate-edition))
   - [JDK 17.0.2](#jdk-17.0.2)
@@ -40,6 +43,38 @@ training. The purpose of this project is to allow the website to be
 tested easily by providing modular methods that can be used to check
 different web elements. The project includes Cucumber and JUnit tests,
 but further tests can be created based on the framework.
+
+### Project Requirements
+Web API Project For this project, you will be building a testing framework to test [Saucedemo.com](https://www.saucedemo.com/)
+
+Page Object Model You will need to create a Page object model that testers could use. This will abstract away the webdriver and provide helper methods to make testing easier.
+
+BDD You will also be implementing a BDD layer using Cucumber. This will allow testing to happens against acceptance criteria using feature files.
+
+Artifacts  - Kanban Board - README file explaining how to use the framework to perform tests.
+
+Git - Master branch can only contain production ready code. No code can be submitted to the master branch without being approved by the scrum master - Dev branch should contain development features that have been tested, reviewed and approved. No code can be submitted to the dev branch without being approved by 2 members of the team - Feature branches contain features that are being worked on. These will be numerous and a suitable naming strategy needs to be used. Aim to have a branch for each feature you are working on. - Web drivers should **NOT** be pushed to Github.
+
+Presentation At the end of the week, you will be presenting your framework. The aim will be to demonstrate how it works. This will be aimed at testers looking to use your framework.
+
+### Project Management
+The project has been developed in 3 days, by a 7-person-team. The agile approach
+has been used, with SCRUM meetings in the morning and evening on each day.
+
+* The tools used for communication within the team were Discord and MS Teams.
+* GitHub and GitHub Desktop were used for version control.
+* Trello was used for planning the work and distributing tasks.
+Below image shows the Kanban board created using Trello:
+
+![Trello](images/trello.png)
+
+### Testing
+The project followed the Behavior Driver Development (BDD) approach.
+User stories were written to define what behavior needs to be tested, based
+on the potential user's needs.
+
+User stories used for the tests:
+
 
 ### Software & Dependencies
 * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](https://www.jetbrains.com/idea/download/#section=windows)
@@ -101,6 +136,9 @@ FirefoxDriverPath= src/test/resources/drivers/geckodriver
 OperaDriverPath= src/test/resources/drivers/operadriver
 EdgeDriverPath= src/test/resources/drivers/msedgedriver
 ```
+The project structure should look like this:
+
+![projectStructure](images/projectStructure.png)
 5. Inside stepDef files, specify which browser you wish to use, as shown below.
 You only need to change the word "CHROME". Available options are
 "CHROME", "OPERA", "EDGE", "FIREFOX".
@@ -113,6 +151,8 @@ You can also run tests by using the TestRunner found in
 src/test/java/com/sparta/swaglabtesting.
 You can use tags to specify which tests to run or leave the tag
 empty to run them all.
+
+![testRunner](images/testRunner.png)
 
 ### Future Work
 Possible extensions of the projects could include:
