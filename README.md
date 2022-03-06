@@ -23,14 +23,14 @@
 * [**Project Requirements**](#project-requirements)
 * [**Project Management**](#project-management)
 * [**Testing**](#testing)
-* [**Software & Dependencies**](#software-&-dependencies)
-  * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](#intellij-idea-2021.3.1-(ultimate-edition))
-  * [JDK 17.0.2](#jdk-1702)
-  * [Apache Maven](#software--dependencies/apache-maven)
-  * [JUnit Jupiter API 5.8.2](#junit-jupiter-api)
-  * [Cucumber JVM: Java 7.2.3](#cucumber-JVM:-Java-7.2.3)
-  * [Cucumber JVM: JUnit 7.2.3](#cucumber-JVM:-JUnit-7.2.3)
-  * [Selenium Java 4.1.2](#selenium-java-4.1.2)
+* [**Software & Dependencies**](#software--dependencies)
+  * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](#intellij-idea-202131-ultimate-editionhttpswwwjetbrainscomideadownloadsectionwindows)
+  * [JDK 17.0.2](#jdk-1702httpsjdkjavanet17)
+  * [Apache Maven](#apache-mavenhttpsmavenapacheorg)
+  * [JUnit Jupiter API 5.8.2](#junit-jupiter-api-582httpsmvnrepositorycomartifactorgjunitjupiterjunit-jupiter-api582)
+  * [Cucumber JVM: Java 7.2.3](#cucumber-jvm-java-723httpsmvnrepositorycomartifactiocucumbercucumber-java723)
+  * [Cucumber JVM: JUnit 7.2.3](#cucumber-jvm-junit-723httpsmvnrepositorycomartifactiocucumbercucumber-java723)
+  * [Selenium Java 4.1.2](#selenium-java-412httpsmvnrepositorycomartifactorgseleniumhqseleniumselenium-java412)
 * [**How To Use**](#how-to-use)
   * [Downloading and opening the project](#downloading-and-opening-the-project)
   * [Setting up the web drivers](#setting-up-the-web-drivers)
@@ -85,9 +85,9 @@ Some internal JUnit testing has also been done to test the web drivers.
 ### Software & Dependencies
 * [IntelliJ IDEA 2021.3.1 (Ultimate Edition)](https://www.jetbrains.com/idea/download/#section=windows)
 * [JDK 17.0.2](https://jdk.java.net/17/)
-* Apache Maven
-    * _**Note:** This dependency can be imported using IntelliJ._
-    * _Go to **"File" > "New Project"** and then selecting **"Maven"** as the project structure._
+* [Apache Maven](https://maven.apache.org/)
+  * _**Note:** This dependency can be imported using IntelliJ._
+  * _Go to **"File" > "New Project"** and then selecting **"Maven"** as the project structure._
 * [JUnit Jupiter API 5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.8.2)
   * _**Note:** This dependency can be imported within Intellij using Apache Maven and IntelliJ's built-in dependency generator._
   * Alternatively you can open the Maven **"pom.xml"** file and paste in the following code within the **"dependencies"** section of the file:
