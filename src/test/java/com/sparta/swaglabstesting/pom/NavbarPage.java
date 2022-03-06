@@ -25,8 +25,6 @@ public class NavbarPage extends Page {
     // Locator for  logout option
 
     private By logout = new By.ById("logout_sidebar_link");
-//    private By logout = new By.ByLinkText("LOGOUT");
-//    private By logout = new By.ByXPath("//*[@id=\"logout_sidebar_link\"]");
 
     // Locator for  reset option
 
